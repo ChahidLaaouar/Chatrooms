@@ -19,6 +19,19 @@
         </form>
     </div>
 
+    <div class="container">
+
+    <!-- Maak bepaalde nuttige roominfo zichtbaar voor de gebruiker -->
+        <p>Current Username: <?=$_SESSION["username"]?></p>
+        <?php
+            //Haal info out de database
+            $sql = "SELECT * FROM room WHERE id = " . $_SESSION["room_id"];;
+            $roominfo = $conn->query($sql);
+            foreach ($roominfo as $currentroominfo){
+                echo "<p>Current room Name: " . $currentroominfo['name'] . "</p>";
+            }
+        ?>   
+    </div>
 
     <div class='container'>
         <?php

@@ -5,6 +5,7 @@ session_start();
 //Als de knop is gedrukt wordt de informatie opgeslagen in een globale variabel.
 if (isset($_POST['joinroom'])) {
     $_SESSION["room_id"] = $_POST['room_id'];
+    $_SESSION["username"] = $_POST['username'];
 
     header('Location: room.php');
 }
