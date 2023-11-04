@@ -17,7 +17,7 @@
 
 
     <div class='container'>
-        <form method="post" action="">
+        <form method="post" action="database.php">
 
             <div class="form-container">
                 <label for="name">Chatroom Name: </label>

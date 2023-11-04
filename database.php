@@ -81,6 +81,27 @@ function displayRooms($rooms)
     }
 }
 
+//createroom.php
+//maak een nieuwe room
+if (isset($_POST['createroom'])) {
+    //haal de informatie om in de nieuwe tabel te stoppen
+    $name = $_POST['name'];
+    $tag = $_POST['tags'];
+    $jsondata = file_get_contents('json/newdata.json');
+
+    //de en encode de data zodat het de goede format heeft
+    $decodeddata = json_decode($jsondata, true);
+    $encodeddata = json_encode($decodeddata);
+
+    //Maak de nieuwe room
+    $sqlCreate = "INSERT INTO `room`(`name`, `popularity`, `tag`, `history`) VALUES ('$name', 0, '$tag', '$encodeddata')";
+    $conn->exec($sqlCreate);
+
+    header('Location: index.php');
+} else
+
+
+
 //room.PHP
 //Als een bericht wordt verstuurd, wordt de .json geupdate
 if (isset($_POST['sendtext'])) {
