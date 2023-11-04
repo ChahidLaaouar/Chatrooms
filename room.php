@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Chatrooms</title>
     <link rel="stylesheet" href="Css/style.css">
+    <!-- breng de scroller naar beneden als default -->
+    <script>
+        function scrollBar(){
+            document.getElementById('room').scrollTop = 9999999
+        }
+        window.onload = scrollBar
+    </script>
 </head>
 <body>
     <div class="header">
