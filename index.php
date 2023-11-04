@@ -26,7 +26,7 @@
             displayRooms($rooms);
         ?>
 
-        <form method="post" action="">
+        <form method="post" action="createroom.php">
             <input class="button" type="submit" name="newroom" value="New Room">
         </form>   
     </div>  
