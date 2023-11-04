@@ -35,6 +35,7 @@
                     <option value="Cooking">Cooking</option>
                     <option value="News">News</option>
                     <option value="Fitness">Fitness</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             
