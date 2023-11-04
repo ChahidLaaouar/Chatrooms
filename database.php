@@ -73,6 +73,41 @@ function displayRooms($rooms)
             echo "</div>";
 
     }
-    
-    
+}
+
+//room.PHP
+//Als een bericht wordt verstuurd, wordt de .json geupdate
+if (isset($_POST['sendtext'])) {
+
+    session_start();
+    //Haal informatie van de room.php
+    $chatmessage = $_POST['textfield'];
+    $chatmessager = $_SESSION["username"];
+    $chatid = $_SESSION["room_id"];
+
+
+    //Haal info out de database
+    $sql = "SELECT * FROM room WHERE id = " . $chatid;
+    $chathistory = $conn->query($sql);
+
+    //Ik gebruik een foreach omdat de query een array teruggeeft
+    foreach ($chathistory as $chathistory)
+    {
+        
+        //Haal informatie van de Json file en decode het in een array
+        $decodedhistory = json_decode($chathistory['history'], true);
+
+        //Push de informatie in de Json array
+        array_push($decodedhistory['messages'], array($chatmessager => $chatmessage));
+
+        // Encode de array weer naar JSON string
+        $encodedhistory = json_encode($decodedhistory, JSON_PRETTY_PRINT);
+
+        // Zet de informatie weer terug
+        $sqlUpdate= "UPDATE room SET history = '{$encodedhistory}' WHERE id = " . $chatid;
+        $conn->exec($sqlUpdate);
+
+    }
+
+    header('Location: room.php');
 }
