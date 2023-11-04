@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     require 'database.php';
  ?> 
 <!DOCTYPE html>
@@ -11,25 +12,22 @@
 </head>
 <body>
     <div class="header">
-        <img id="logo" src="img/cr-logo.png">
+        <img class="logo" src="img/cr-logo.png">
         <h1>The Chatrooms</h1>
         <form action="info.php">
             <input type="submit" class="backgroundbutton" value="Info">
         </form>
     </div>
 
-    <div class='container'>
 
-        <h2>0/8 Rooms</h2>
-             
+    <div class='container'>
         <?php
-            displayRooms($rooms);
+            displayChat($conn);
         ?>
 
-        <form method="post" action="">
-            <input class="button" type="submit" name="newroom" value="New Room">
-        </form>   
-    </div>  
-    
-</body>
-</html>
+        <form action="database.php" method="post">
+            <input type="text" name="textfield" maxlength="30" required>
+            <input type="submit" name="sendtext"> 
+        </form>
+
+    </div>
