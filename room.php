@@ -1,6 +1,11 @@
 <?php 
     session_start();
     require 'database.php';
+    
+     //Check eerst of de informatie van joinroom.php bestaat, dit voorkomt foutmeldingen
+     if (!isset($_SESSION["room_id"])){
+        exit(1);
+    }
  ?> 
 <!DOCTYPE html>
 <html lang="en">
