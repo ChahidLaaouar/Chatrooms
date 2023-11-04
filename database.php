@@ -42,6 +42,12 @@ function displayChat($conn)
     }
 }
 
+//Functie om alle rooms te tellen
+function displayRoomsAmount($rooms)
+{
+    echo $rooms->rowCount();
+}
+
 //Functie om alle rooms te laten zien
 function displayRooms($rooms)
 {

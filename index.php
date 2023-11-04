@@ -20,7 +20,7 @@
 
     <div class='container'>
 
-        <h2>0/8 Rooms</h2>
+    <h2><?=displayRoomsAmount($rooms)?> Rooms</h2>
              
         <?php
             displayRooms($rooms);
