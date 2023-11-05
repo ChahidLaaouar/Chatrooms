@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Chatrooms</title>
     <link rel="stylesheet" href="Css/style.css">
+    <meta http-equiv="refresh" content="30">
 </head>
 <body>
     <div class="header">
@@ -20,15 +21,16 @@
 
     <div class='container'>
 
-    <h2><?=displayRoomsAmount($rooms)?> Rooms</h2>
-             
-        <?php
-            displayRooms($rooms);
-        ?>
+        <h2><?=displayRoomsAmount($rooms)?> Rooms</h2>
 
         <form method="post" action="createroom.php">
             <input class="button" type="submit" name="newroom" value="New Room">
         </form>   
+             
+        <?php
+            displayRooms($rooms);
+        ?>
+        
     </div>  
     
 </body>

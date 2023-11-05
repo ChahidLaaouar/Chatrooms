@@ -1,7 +1,7 @@
 <?php 
     session_start();
     require 'database.php';
-    
+
      //Check eerst of de informatie van joinroom.php bestaat, dit voorkomt foutmeldingen
      if (!isset($_SESSION["room_id"])){
         exit(1);
@@ -21,6 +21,7 @@
         }
         window.onload = scrollBar
     </script>
+    <meta http-equiv="refresh" content="10">
 </head>
 <body>
     <div class="header">

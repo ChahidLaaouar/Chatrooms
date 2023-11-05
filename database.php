@@ -108,7 +108,7 @@ if (isset($_POST['sendtext'])) {
 
     session_start();
     //Haal informatie van de room.php
-    $chatmessage = $_POST['textfield'];
+    $chatmessage = htmlspecialchars($_POST['textfield']);
     $chatmessager = $_SESSION["username"];
     $chatid = $_SESSION["room_id"];
 
