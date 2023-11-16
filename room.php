@@ -46,14 +46,17 @@
         ?>   
     </div>
 
-    <div class='container'>
+    <div class='container' id='room'>
         <?php
             displayChat($conn);
         ?>
 
-        <form action="database.php" method="post">
-            <input type="text" name="textfield" maxlength="30" required>
-            <input type="submit" name="sendtext"> 
-        </form>
+        
 
     </div>
+    <form action="database.php" method="post">
+            <input type="text" class="texts" name="textfield" maxlength="30" required>
+            <br>
+            <input type="submit" class="backgroundbutton" name="sendtext" value="Send Text"> 
+    </form>
+</body>
