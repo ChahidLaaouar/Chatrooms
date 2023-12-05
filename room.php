@@ -27,8 +27,8 @@
     <div class="header">
         <img class="logo" src="img/cr-logo.png">
         <h1>The Chatrooms</h1>
-        <form action="info.php">
-            <input type="submit" class="backgroundbutton" value="Info">
+        <form action="index.php">
+            <input type="submit" class="backgroundbutton" value="Home">
         </form>
     </div>
 
