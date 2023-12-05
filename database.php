@@ -112,7 +112,6 @@ if (isset($_POST['sendtext'])) {
     $chatmessager = $_SESSION["username"];
     $chatid = $_SESSION["room_id"];
 
-
     //Haal info out de database
     $sql = "SELECT * FROM room WHERE id = " . $chatid;
     $chathistory = $conn->query($sql);
@@ -130,10 +129,16 @@ if (isset($_POST['sendtext'])) {
         // Encode de array weer naar JSON string
         $encodedhistory = json_encode($decodedhistory, JSON_PRETTY_PRINT);
 
+        // Verandert single quotes naar double single quotes, dit maakt single quotes sql-vriendelijk. Vermijd een foutmelding
+        $encodedhistory = str_replace("'", "''", $encodedhistory);
+        
+
         // Zet de informatie weer terug
         $sqlUpdate= "UPDATE room SET history = '{$encodedhistory}' WHERE id = " . $chatid;
-        $conn->exec($sqlUpdate);
+        var_dump($sqlUpdate);
 
+        $conn->exec($sqlUpdate);
+        
     }
 
     header('Location: room.php');
