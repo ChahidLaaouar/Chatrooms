@@ -21,7 +21,7 @@
 
             <div class="form-container">
                 <label for="name">Chatroom Name: </label>
-                <input type="text" name="name" maxlength="30" required class="texts">
+                <input type="text" name="name" maxlength="10" required class="texts">
             
                 <label for="tags">Add tag:</label>
                 <select name="tags" class="texts" required>
